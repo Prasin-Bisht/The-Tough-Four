@@ -120,10 +120,10 @@ USE_TZ = True
 
 import os
 STATIC_URL = 'static/'
-STATIC_DIR=os.path.join(BASE_DIR,'Accounts/static')
-STATIC_DIR=os.path.join(BASE_DIR,'Approvels/static')
-STATIC_DIR=os.path.join(BASE_DIR,'Core/static')
-STATIC_DIR=os.path.join(BASE_DIR,'Expances/static')
+STATIC_DIR=os.path.join(BASE_DIR,'/static')
+STATIC_DIR=os.path.join(BASE_DIR,'/static')
+STATIC_DIR=os.path.join(BASE_DIR,'/static')
+STATIC_DIR=os.path.join(BASE_DIR,'/static')
 
 MEDIA_URL = 'media/'
 
