@@ -13,7 +13,7 @@ def signup(request):
             return redirect('login')
     else:
         form = AccountForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'singup.html', {'form': form})
 
 def login(request):
     if request.method == 'POST':
