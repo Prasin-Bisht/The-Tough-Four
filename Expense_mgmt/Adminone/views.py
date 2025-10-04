@@ -4,7 +4,7 @@ from .models import AccountModel
 from .forms import AccountForm
 # Create your views here.
 
-def singup(request):
+def signup(request):
     if request.method == 'POST':
         form = AccountForm(request.POST)
         if form.is_valid():
