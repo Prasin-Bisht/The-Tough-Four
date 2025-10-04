@@ -19,3 +19,9 @@ class AccountForm(forms.ModelForm):
         if password and confirmpassword and password != confirmpassword:
             self.add_error("confirmpassword", "Passwords do not match")
         return cleaned_data
+    
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = AccountModel
+        field =['email','password']
+

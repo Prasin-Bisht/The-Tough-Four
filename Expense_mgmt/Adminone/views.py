@@ -1,31 +1,33 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import AccountModel
-from .forms import AccountForm
+from .forms import AccountForm,LoginForm
 # Create your views here.
 
-def singup(request):
+def Login(request):
     if request.method == 'POST':
         form = AccountForm(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request,f'Your acccount')
+            return redirect('singup')
+    else:
+        form = AccountForm()
+    return render(request,'login.html',{'form':form})
+
+
+@login_required
+def singup(request):
+    if request.method == 'POST':
+        f = AccountForm(request.POST)
+        if f.is_valid():
+            f.save()
             messages.success(request, "Account created successfully! Please login.")
             return redirect('login')
     else:
-        form = AccountForm()
-    return render(request, 'signup.html', {'form': form})
+        f = AccountForm()
+    return render(request, 'signup.html', {'f': f})
 
-def login(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        try:
-            user = AccountModel.objects.get(email=email, password=password)
-            # Store user id in session
-            request.session['user_id'] = user.id
-            request.session['user_name'] = user.name
-            return redirect('home')  # redirect to a home/dashboard page
-        except AccountModel.DoesNotExist:
-            messages.error(request, "Invalid email or password")
-            return redirect('login')
-    return render(request, 'login.html')
+
