@@ -5,11 +5,7 @@ from .models import AccountModel
 from .forms import AccountForm,LoginForm
 # Create your views here.
 
-<<<<<<< HEAD
-def Login(request):
-=======
-def signup(request):
->>>>>>> f9a2a5c40ef255910d4057731274eceeccf524eb
+def login(request):
     if request.method == 'POST':
         form = AccountForm(request.POST)
         if form.is_valid():
