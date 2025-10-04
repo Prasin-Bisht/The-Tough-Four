@@ -6,12 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Signup</h2>
+    <h1>New User</h1>
     <form method="post">
         {% csrf_token %}
-        {{ f.as_p }}
-        <button type="submit">Register</button>
+        {{ u.as_p }}
+        <button type="submit">Create User</button>
     </form>
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
 </body>
 </html>
