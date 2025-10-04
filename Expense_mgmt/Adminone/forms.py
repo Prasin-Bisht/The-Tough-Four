@@ -8,7 +8,7 @@ class AccountForm(forms.ModelForm):
 
     class Meta:
         model = AccountModel
-        fields = ['name', 'email', 'password', 'confirmpassword', 'countrySelection']
+        fields = ['name', 'email', 'password', 'confirmpassword', 'countrySelection' , 'manager','role']
 
     # validate password match
     def clean(self):
