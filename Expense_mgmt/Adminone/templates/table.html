@@ -96,6 +96,29 @@
     {% endfor %}
 </tbody>
 
+        .atag{
+
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <th>
+            <a class="atag" href="{% url 'newuser'%}">NEW</a>
+            <td>User</td>
+            <td>Role</td>
+            <td>Email</td>
+            <td>Manager</td>
+        </th>
+        {% for u in p %}
+        <tr><td>{{p.name}}</td>
+            <td>{{p.role}}</td>
+            <td>{{p.manager}}</td>
+            <td>{{p.email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
         </table>
     </div>
 </body>
