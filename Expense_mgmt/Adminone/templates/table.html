@@ -68,18 +68,22 @@
             background: rgba(255, 255, 255, 0.15);
             transition: 0.2s ease-in-out;
         }
+
+        .atag{
+            
+        }
     </style>
 </head>
 <body>
     <table border="1">
-        <a href="{% url 'newuser'%}">NEW</a>
         <th>
+            <a class="atag" href="{% url 'newuser'%}">NEW</a>
             <td>User</td>
             <td>Role</td>
             <td>Email</td>
             <td>Manager</td>
         </th>
-        {% for u in u %}
+        {% for p in p %}
         <tr><td>{{p.name}}</td>
             <td>{{p.role}}</td>
             <td>{{p.manager}}</td>
