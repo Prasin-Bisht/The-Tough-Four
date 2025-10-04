@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Receipt</title>
+</head>
+<body>
+    <h1>Upload Receipt</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Description: {{ form.description }}</p>
+        <p>Category: {{ form.category }}</p>
+        <p>Paid By: {{ form.paid_by }}</p>
+        <p>Remarks: {{ form.remarks }}</p>
+        <p>TotalAmount: {{ form.amount }}</p>
+    </form>
+    <a href="{% url 'expenses' %}"><button type="submit">Submit</button></a>
+</body>
+</html>
