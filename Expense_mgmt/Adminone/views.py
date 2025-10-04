@@ -12,13 +12,13 @@ def login(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request,f'Your acccount')
-            return redirect('singup')
+            return redirect('table')
     else:
         form = AccountForm()
     return render(request,'login.html',{'form':form})
 
 
-@login_required
+
 def singup(request):
     if request.method == 'POST':
         f = AccountForm(request.POST)
@@ -28,4 +28,4 @@ def singup(request):
             return redirect('login')
     else:
         f = AccountForm()
-    return render(request, 'singup.html', {'f': f})
+    return render(request, 'singup.html',{'f': f})
