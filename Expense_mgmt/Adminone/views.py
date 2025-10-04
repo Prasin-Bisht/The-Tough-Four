@@ -31,7 +31,8 @@ def singup(request):
 
 def table(request):
     p = AccountModel.objects.all()
-    return render(request, 'table.html', {'u': p})
+    return render(request, 'table.html', {'p': p})
+
 
 
 def newuser(request):

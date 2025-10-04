@@ -68,33 +68,35 @@
             background: rgba(255, 255, 255, 0.15);
             transition: 0.2s ease-in-out;
         }
-
-        .atag{
-            
-        }
     </style>
 </head>
 <body>
-    <table border="1">
-        <th>
-            <a class="atag" href="{% url 'newuser'%}">NEW</a>
-            <td>User</td>
-            <td>Role</td>
-            <td>Email</td>
-            <td>Manager</td>
-        </th>
-<<<<<<< HEAD
-        {% for p in p %}
-=======
-        {% for u in p %}
->>>>>>> e126a907b3a03ed45ad25e34b1f037760500959f
-        <tr><td>{{p.name}}</td>
-            <td>{{p.role}}</td>
-            <td>{{p.manager}}</td>
-            <td>{{p.email}}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Manager</th>
+                    <th>
+                        <a href="{% url 'newuser' %}">NEW</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for u in p %}
+    <tr>
+        <td>{{ u.name }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.manager }}</td>
+        <td></td>
+    </tr>
+    {% endfor %}
+</tbody>
 
+        </table>
+    </div>
 </body>
 </html>
