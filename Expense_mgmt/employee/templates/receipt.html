@@ -10,11 +10,12 @@
     <form method="post">
         {% csrf_token %}
         <p>Description: {{ form.description }}</p>
+        <p>Date: {{ form.date }}</p>
         <p>Category: {{ form.category }}</p>
         <p>Paid By: {{ form.paid_by }}</p>
         <p>Remarks: {{ form.remarks }}</p>
-        <p>TotalAmount: {{ form.amount }}</p>
+        <p>Total Amount: {{ form.amount }}</p>
+        <button type="submit">Submit</button>
     </form>
-    <a href="{% url 'expenses' %}"><button type="submit">Submit</button></a>
 </body>
 </html>
