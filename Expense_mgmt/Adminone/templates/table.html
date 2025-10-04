@@ -71,6 +71,7 @@
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="container">
         <a href="{% url 'newuser' %}">➕ New User</a>
         <table>
@@ -90,5 +91,24 @@
             {% endfor %}
         </table>
     </div>
+=======
+    <table border="1">
+        <a href="{% url 'newuser'%}">NEW</a>
+        <th>
+            <td>User</td>
+            <td>Role</td>
+            <td>Email</td>
+            <td>Manager</td>
+        </th>
+        {% for u in u %}
+        <tr><td>{{p.name}}</td>
+            <td>{{p.role}}</td>
+            <td>{{p.manager}}</td>
+            <td>{{p.email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+>>>>>>> 91bf12676589e6588df72d2de9880f0f1d54bcef
 </body>
 </html>
