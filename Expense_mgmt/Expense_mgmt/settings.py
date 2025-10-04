@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Adminone'
+    'Adminone',
+    'employee',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,7 @@ USE_TZ = True
 import os
 STATIC_URL = 'static/'
 STATIC_DIR=os.path.join('Adminone','static')
+STATIC_DIR=os.path.join('employee',STATIC_DIR)
 MEDIA_URL = 'media/'
 
 MEDIA_DIR=os.path.join(BASE_DIR,'media/')
