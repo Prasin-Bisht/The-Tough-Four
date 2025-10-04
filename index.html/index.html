@@ -1,11 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liquid Glass Navbar</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-dQy6Yk6bM1nQxF+/Zf87+3Sj8kvsQxRzF0Y7A1p9q+F5LkVr6Ld+N3lMRTv4dqO1+K4R70Z+8QXCh8JnU9Xk7Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
+        iframe {
+            border: none;
+            height: 900px;
+            width: 1350px;
+        }
+
         body {
             margin: 0;
             font-family: "Segoe UI", sans-serif;
@@ -54,6 +66,7 @@
         ul {
             display: flex;
             list-style: none;
+            /* removes bullets/arrows */
             margin: 0;
             padding: 0;
             gap: 25px;
@@ -67,6 +80,10 @@
             padding: 8px 14px;
             border-radius: 12px;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            /* space between icon and text */
         }
 
         ul li a:hover {
@@ -75,31 +92,24 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        iframe {
-            border: none;
-            height: 900px;
-            width: 1350px;
+        /* Optional: icon color change on hover */
+        ul li a:hover i {
+            color: #fffb;
         }
     </style>
 </head>
 
 <body>
-    <nav></nav>
+
     <iframe src="https://my.spline.design/liquidglass-Qtwidx3d4xluHv4cOqpMzwQH-BWa/" frameborder="0">
     </iframe>
 
     <nav>
         <div class="logo">MyLogo</div>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i>Services</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i>Contact</a></li>
         </ul>
     </nav>
 
