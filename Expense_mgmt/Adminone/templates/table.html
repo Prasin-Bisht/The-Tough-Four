@@ -7,18 +7,20 @@
 </head>
 <body>
     <table border="1">
-        <a href="{% url 'newuser'%}"><button>NEW</button></a>
+        <a href="{% url 'newuser'%}">NEW</a>
         <th>
             <td>User</td>
             <td>Role</td>
-            <td>Maneger</td>
             <td>Email</td>
+            <td>Manager</td>
         </th>
-        <tr><td>{{p.name}}</td>
-            <td>{{p.role}}</td>
-            <td>{{p.email}}</td>
-</tr>
-        
+        {% for u in u %}
+        <tr><td>{{u.name}}</td>
+            <td>{{u.role}}</td>
+            <td>{{u.manager}}</td>
+            <td>{{u.email}}</td>
+        </tr>
+        {% endfor %}
     </table>
 
 </body>

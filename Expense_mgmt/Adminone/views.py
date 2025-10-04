@@ -33,7 +33,18 @@ def singup(request):
 
 def table(request):
     p = AccountModel.objects.all()
-    return render(request,'table.html',{'p':p})
+    return render(request,'table.html',{'u':p})
+
+def newuser(request):
+    if request.method == 'POST':
+        u = AccountForm(request.POST , request.FILES)
+        if u.is_valid():
+            u.save()
+            messages.success(request, "New user created successfully!")
+            return redirect('table')
+    else:
+        u = AccountForm()
+    return render(request, 'newuser.html', {'u': u})
 
 def newuser(request):
     p_1 = AccountModel.objects.all()

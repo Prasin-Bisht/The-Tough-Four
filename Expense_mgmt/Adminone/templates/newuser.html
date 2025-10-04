@@ -6,10 +6,19 @@
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
     <form method="post">
         {% csrf_token %}
         {{ p_1.as_p }}
     </form>
 
+=======
+    <h1>New User</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ u.as_p }}
+        <button type="submit">Create User</button>
+    </form>
+>>>>>>> 9ceb6f472701d3a896130553b698ca7f574ec932
 </body>
 </html>

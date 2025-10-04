@@ -9,7 +9,11 @@ class AccountModel(models.Model):
     ]
 
     ROLE_CHOICES = [
+<<<<<<< HEAD
     ('Manager','MANAGER'),
+=======
+    ('Manager','MANaGER'),
+>>>>>>> 9ceb6f472701d3a896130553b698ca7f574ec932
     ('employee','EMPLOYEE'),
 
     ]
@@ -19,6 +23,7 @@ class AccountModel(models.Model):
     confirmpassword = models.CharField()
     countrySelection = models.CharField(max_length=25,choices=STATUS_CHOICES)
     role = models.CharField(max_length=20,choices=ROLE_CHOICES)
+    manager = models.CharField(max_length=50)
 
 def __str__(self):
         return self.name
