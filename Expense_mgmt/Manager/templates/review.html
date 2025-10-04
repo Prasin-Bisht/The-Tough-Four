@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Approvals to Review</h1>
+        <table border="1">
+            <tr>
+                <td>Approval Subject</td>
+                <td>Request Owner</td>
+                <td>Category</td>
+                <td>Request Status</td>
+                <td>Total Amount</td>
+            </tr>
+            {% for exp in expenses %}
+    <tr>
+        <td>{{ exp.subject }}</td>
+        <td>{{ exp.owner.username }}</td>
+        <td>{{ exp.category }}</td>
+        <td>{{ exp.status }}</td>
+        <td>{{ exp.amount }}</td>
+        <td>
+        {% if exp.status == "Pending" %}
+            <a href="{% url 'approve_expense' exp.id %}">Approve</a>
+            <a href="{% url 'reject_expense' exp.id %}">Reject</a>
+        {% else %}
+            {{ exp.status }}
+        {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+
+        </table>
+    </body>
+    </html>

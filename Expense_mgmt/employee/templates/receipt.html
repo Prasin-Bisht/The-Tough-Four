@@ -97,7 +97,7 @@
             <p>Paid By: {{ form.paid_by }}</p>
             <p>Remarks: {{ form.remarks }}</p>
             <p>Total Amount: {{ form.amount }}</p>
-            <button type="submit">Submit</button>
+            <a href="{% url 'review' %}"><button type="submit">Submit</button></a>
         </form>
     </div>
 </body>
