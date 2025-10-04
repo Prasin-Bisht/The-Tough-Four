@@ -1,16 +1,210 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+
+<style>
+    .main {
+        background-color: rgba(255, 255, 255, 0.089);
+        margin: 4.2rem 0 0 20.8rem;
+        height: 80vh;
+        width: 50%;
+        display: flex;
+        transition: linear .2s;
+        border-radius: 15px;
+    }
+
+    .main:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 10px black;
+    }
+
+    .comp-guy {
+        height: 100%;
+        width: 40%;
+        display: inline-block;
+        border-radius: 15px;
+    }
+
+    .comp-guy-img {
+        transition: linear .1s;
+        height: 100%;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    .comp-guy-img:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 5px black;
+    }
+
+    .login h1 {
+        color: rgb(58, 58, 58);
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        margin-top: -70px;
+        margin-bottom: 2rem;
+        font-size: 25px;
+        transition: linear .1s;
+    }
+
+    .login h1:hover {
+        transform: scale(1.05);
+        color: black;
+    }
+
+    .login {
+        border-radius: 15px;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.411);
+        transition: linear .1s;
+    }
+
+    /* .login:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 5px black;
+    } */
+
+    .logo {
+        padding-top: .45rem;
+        margin: .5rem 0 -.5rem .5rem;
+        position: relative;
+        height: 7rem;
+        width: 7rem;
+        object-fit: contain;
+        border-radius: 50%;
+        transition: transform .1s linear;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .logo:hover {
+        transform: scale(1.04);
+    }
+
+    .login form {
+        margin: 3.5rem 0 .5rem 3rem;
+    }
+
+    form label {
+        display: flex;
+    }
+
+    h1 {
+        color: white;
+
+    }
+
+    .form {
+        height: 100%;
+    }
+
+    #id_name,
+    #id_img,
+    #id_email,
+    #id_confirmpassword,
+    #id_password,
+    #id_login,
+    #id_countrySelection {
+        height: 1.45rem;
+        box-shadow: 0 0 2px gray;
+        border: none;
+        width: 25rem;
+        border-radius: 10px;
+        transition: linear .1s;
+    }
+
+    label,
+    input,
+    select,
+    #id_login {
+        margin-left: 5rem;
+    }
+
+
+    #id_img {
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    #id_name:hover,
+    #id_email:hover,
+    #id_gender:hover,
+    #id_login:hover,
+    #id_address:hover,
+    #id_countrySelection:hover {
+        transform: scale(1.01);
+        padding: 0.25rem;
+    }
+
+    #id_login {
+        cursor: pointer;
+        height: 2rem;
+
+        background-color: black;
+        color: rgb(79, 233, 79);
+    }
+
+    #id_login:hover {
+        background-color: rgb(79, 233, 79);
+        color: black;
+    }
+
+    label {
+        font-size: 1.15rem;
+        transition: linear .1s;
+    }
+
+    label:hover {
+        transform: scale(1.04);
+    }
+
+    #id_address {
+        height: 4rem;
+    }
+
+    .sign-up {
+        margin-left: 2.5rem;
+    }
+</style>
+
 <body>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="{% url 'singup' %}">Singp here</a></p>
+
+    <body>
+        <iframe src="https://my.spline.design/liquidglass-Qtwidx3d4xluHv4cOqpMzwQH-BWa/" frameborder="0" width="100%"
+            height="100%" style="position:fixed; top:0; left:0; z-index:-1;"></iframe>
+    </body>
+
+    <div class="main">
+
+        <div class="login">
+            <img src="{% static 'logo.webp' %}" alt="logo" class="logo">
+            <h1>Login</h1>
+
+            <div class="form">
+
+                <form method="post" enctype="multipart/form-data">
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" id="id_login">Login</button>
+                    </form>
+                    <p class="sign-up">Don't have an account? <a href="{% url 'singup' %}">Sign-up Here</a></p>
+                </form>
+            </div>
+        </div>
+
+    </div>
 </body>
+
 </html>
