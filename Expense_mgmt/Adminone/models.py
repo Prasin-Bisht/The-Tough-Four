@@ -9,11 +9,7 @@ class AccountModel(models.Model):
     ]
 
     ROLE_CHOICES = [
-<<<<<<< HEAD
     ('Manager','MANAGER'),
-=======
-    ('Manager','MANaGER'),
->>>>>>> 9ceb6f472701d3a896130553b698ca7f574ec932
     ('employee','EMPLOYEE'),
 
     ]
