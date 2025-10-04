@@ -5,20 +5,20 @@ from .models import AccountModel
 from .forms import AccountForm,LoginForm
 # Create your views here.
 
-def Login(request):
+def login(request):
     if request.method == 'POST':
         form = AccountForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request,f'Your acccount')
-            return redirect('singup')
+            return redirect('table')
     else:
         form = AccountForm()
     return render(request,'login.html',{'form':form})
 
 
-@login_required
+
 def singup(request):
     if request.method == 'POST':
         f = AccountForm(request.POST)
@@ -28,6 +28,4 @@ def singup(request):
             return redirect('login')
     else:
         f = AccountForm()
-    return render(request, 'signup.html', {'f': f})
-
-
+    return render(request, 'signup.html',{'f': f})
