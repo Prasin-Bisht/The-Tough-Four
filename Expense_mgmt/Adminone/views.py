@@ -4,12 +4,12 @@ from .models import AccountModel
 from .forms import AccountForm, ExpenseForm, ApprovalRuleForm
 
 
-def account_login(request):   # ✅ renamed to avoid conflict
+def login(request):
     if request.method == 'POST':
         form = AccountForm(request.POST)
         if form.is_valid():
             form.save()
-            name = form.cleaned_data.get('name')   # ✅ fixed username issue
+            name = form.cleaned_data.get('name')
             messages.success(request, f'Account for {name} created successfully!')
             return redirect('table')
     else:
@@ -17,16 +17,16 @@ def account_login(request):   # ✅ renamed to avoid conflict
     return render(request, 'login.html', {'form': form})
 
 
-def signup(request):   # ✅ corrected name
+def singup(request):
     if request.method == 'POST':
-        f = AccountForm(request.POST)   # ✅ use AccountForm instead of LoginForm
+        f = AccountForm(request.POST)
         if f.is_valid():
             f.save()
             messages.success(request, "Account created successfully! Please login.")
             return redirect('account_login')
     else:
         f = AccountForm()
-    return render(request, 'signup.html', {'f': f})
+    return render(request, 'singup.html', {'f': f})
 
 
 def table(request):
