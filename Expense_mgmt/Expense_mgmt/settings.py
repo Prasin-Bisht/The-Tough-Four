@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Accounts',
+    'Approvels',
+    'Core',
+    'Expances',
 ]
 
 MIDDLEWARE = [
@@ -114,7 +118,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+import os
 STATIC_URL = 'static/'
+STATIC_DIR=os.path.join(BASE_DIR,'Accounts/static')
+STATIC_DIR=os.path.join(BASE_DIR,'Approvels/static')
+STATIC_DIR=os.path.join(BASE_DIR,'Core/static')
+STATIC_DIR=os.path.join(BASE_DIR,'Expances/static')
+
+MEDIA_URL = 'media/'
+
+MEDIA_DIR=os.path.join(BASE_DIR,'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
