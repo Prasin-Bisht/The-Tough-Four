@@ -1,5 +1,5 @@
 from django import forms
-from .models import AccountModel
+from .models import AccountModel,Expense,ApprovalRule
 
 
 class AccountForm(forms.ModelForm):

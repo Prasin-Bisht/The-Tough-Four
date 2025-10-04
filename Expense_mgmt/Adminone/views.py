@@ -35,3 +35,6 @@ def table(request):
     p = AccountModel.objects.all()
     return render(request,'table.html',{'p':p})
 
+def newuser(request):
+    p_1 = AccountModel.objects.all()
+    return render(request,'newuser.html',{'p_1':p_1})
