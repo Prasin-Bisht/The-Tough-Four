@@ -180,6 +180,9 @@
     h1 {
         color: rgb(255, 255, 255);
     }
+    .p{
+        margin-left: 3rem;
+    }
 </style>
 
 <body>
@@ -199,10 +202,11 @@
                 <h2>Signup</h2>
                 <form method="post">
                     {% csrf_token %}
-                    {{ f.as_p }}
-                    <button type="submit">Register</button>
+                    <p>Email:{{ f.email }}</p>
+                    <p>Password:{{ f.password }}</p>
+                    <button type="submit">Login</button>
                 </form>
-                <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+                <p class="p">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
             </div>
 
         </div>

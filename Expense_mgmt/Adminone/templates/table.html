@@ -3,25 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Table</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2f86b9, #142850);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background: #ffffff22;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        a:hover {
+            background: rgba(255,255,255,0.4);
+            color: #142850;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            color: white;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transition: 0.2s ease-in-out;
+        }
+    </style>
 </head>
 <body>
-    <table border="1">
-        <a href="{% url 'newuser'%}">NEW</a>
-        <th>
-            <td>User</td>
-            <td>Role</td>
-            <td>Email</td>
-            <td>Manager</td>
-        </th>
-        {% for u in u %}
-        <tr><td>{{u.name}}</td>
-            <td>{{u.role}}</td>
-            <td>{{u.manager}}</td>
-            <td>{{u.email}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
+    <div class="container">
+        <a href="{% url 'newuser' %}">➕ New User</a>
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Manager</th>
+            </tr>
+            {% for u in u %}
+            <tr>
+                <td>{{u.name}}</td>
+                <td>{{u.role}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.manager}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </body>
 </html>
