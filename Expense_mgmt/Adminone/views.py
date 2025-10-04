@@ -4,7 +4,7 @@ from .models import AccountModel
 from .forms import AccountForm, ExpenseForm, ApprovalRuleForm
 
 
-def account_login(request):   # ✅ renamed to avoid conflict
+def login(request):   # ✅ renamed to avoid conflict
     if request.method == 'POST':
         form = AccountForm(request.POST)
         if form.is_valid():
