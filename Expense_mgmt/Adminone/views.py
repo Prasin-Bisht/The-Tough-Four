@@ -18,26 +18,20 @@ def login(request):
     return render(request,'login.html',{'form':form})
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> ae2de2b1c007357b800af2b29d3f609326ba8291
 def singup(request):
     if request.method == 'POST':
-        f = AccountForm(request.POST)
-        if f.is_valid():
+        f_1 = LoginForm(request.POST)
+        if f_1.is_valid():
             f.save()
             messages.success(request, "Account created successfully! Please login.")
             return redirect('login')
     else:
         f = AccountForm()
-<<<<<<< HEAD
-    return render(request, 'signup.html', {'f': f})
+    return render(request, 'singup.html', {'f': f})
 
 
 def table(request):
     p = AccountModel.objects.all()
     return render(request,'table.html',{'p':p})
-=======
-    return render(request, 'signup.html',{'f': f})
->>>>>>> ae2de2b1c007357b800af2b29d3f609326ba8291
+

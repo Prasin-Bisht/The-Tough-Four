@@ -6,20 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <table boader="1">
+    <table border="1">
+        <a href="{% url 'newuser'%}"><button>NEW</button></a>
         <th>
             <td>User</td>
             <td>Role</td>
             <td>Maneger</td>
             <td>Email</td>
         </th>
-            <td>{{p.name}}</td>
+        <tr><td>{{p.name}}</td>
             <td>{{p.role}}</td>
             <td>{{p.email}}</td>
-
-        <tr>
-
-        </tr>
+</tr>
+        
     </table>
 
 </body>

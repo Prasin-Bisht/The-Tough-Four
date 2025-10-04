@@ -8,9 +8,9 @@ class AccountModel(models.Model):
     ('Canada', 'CANADA'),
     ]
 
-    STATUS_CHOICES1 = [
-    ('Maneger','MANEGER'),
-    ('Amploye','Amploye'),
+    ROLE_CHOICES = [
+    ('Manaqger','MANaGER'),
+    ('employee','EMPLOYEE'),
 
     ]
     name = models.CharField(max_length=50)
@@ -18,7 +18,7 @@ class AccountModel(models.Model):
     password = models.CharField()
     confirmpassword = models.CharField()
     countrySelection = models.CharField(max_length=25,choices=STATUS_CHOICES)
-    role = models.CharField(max_length=20,choices=STATUS_CHOICES1)
+    role = models.CharField(max_length=20,choices=ROLE_CHOICES)
 
 def __str__(self):
         return self.name
