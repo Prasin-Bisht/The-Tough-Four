@@ -18,7 +18,6 @@ def login(request):
     return render(request,'login.html',{'form':form})
 
 
-@login_required
 def singup(request):
     if request.method == 'POST':
         f = AccountForm(request.POST)
@@ -31,3 +30,6 @@ def singup(request):
     return render(request, 'signup.html', {'f': f})
 
 
+def table(request):
+    p = AccountModel.objects.all()
+    return render(request,'table.html',{'p':p})
