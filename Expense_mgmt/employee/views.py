@@ -17,7 +17,18 @@ def receipt(request):
             expense.employee = request.user
             expense.status = 'Pending'
             expense.save()
-            return redirect('expenses')
+            return redirect('review')
     else:
         form = EmployeeExpenseForm()
     return render(request, 'receipt.html', {'form': form})
+
+
+def register(request):
+    if request.method == 'POST':
+        v = EmployeeExpenseForm(request.POST,request.FILES)
+        if v.is_valid():
+            v.save()
+            return redirect('expenses')
+    else:
+        v = EmployeeExpenseForm()
+    return render(request, 'review.html', {'v': v})

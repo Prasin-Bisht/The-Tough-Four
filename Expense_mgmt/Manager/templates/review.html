@@ -1,38 +1,115 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <h1>Approvals to Review</h1>
-        <table border="1">
-            <tr>
-                <td>Approval Subject</td>
-                <td>Request Owner</td>
-                <td>Category</td>
-                <td>Request Status</td>
-                <td>Total Amount</td>
-            </tr>
-            {% for exp in expenses %}
-    <tr>
-        <td>{{ exp.subject }}</td>
-        <td>{{ exp.owner.username }}</td>
-        <td>{{ exp.category }}</td>
-        <td>{{ exp.status }}</td>
-        <td>{{ exp.amount }}</td>
-        <td>
-        {% if exp.status == "Pending" %}
-            <a href="{% url 'approve_expense' exp.id %}">Approve</a>
-            <a href="{% url 'reject_expense' exp.id %}">Reject</a>
-        {% else %}
-            {{ exp.status }}
-        {% endif %}
-        </td>
-    </tr>
-    {% endfor %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approvals to Review</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2f86b9, #142850);
+            margin: 0;
+            padding: 40px;
+            color: white;
+        }
 
-        </table>
-    </body>
-    </html>
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transition: 0.2s ease-in-out;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .approve {
+            background: rgba(79, 233, 79, 0.7);
+            color: black;
+        }
+
+        .approve:hover {
+            background: rgba(79, 233, 79, 1);
+        }
+
+        .reject {
+            background: rgba(233, 79, 79, 0.7);
+            color: white;
+        }
+
+        .reject:hover {
+            background: rgba(233, 79, 79, 1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Approvals to Review</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Approval Subject</th>
+                <th>Request Owner</th>
+                <th>Category</th>
+                <th>Request Status</th>
+                <th>Total Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exp in user %}
+            <tr>
+                <td>{{ exp.subject }}</td>
+                <td>{{ exp.owner.username }}</td>
+                <td>{{ exp.category }}</td>
+                <td>{{ exp.status }}</td>
+                <td>{{ exp.amount }}</td>
+                <td>
+                    {% if exp.status == "Pending" %}
+                        <a href="{% url 'approve_expense' exp.id %}" class="btn approve">Approve</a>
+                        <a href="{% url 'reject_expense' exp.id %}" class="btn reject">Reject</a>
+                    {% else %}
+                        {{ exp.status }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

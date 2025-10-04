@@ -24,6 +24,6 @@ def reject_expense(request, expense_id):
     return redirect('manager_dashboard')
 
 def review(request):
-    t=loader.get_template('review.html')
-    return HttpResponse(t.render())
+    user = EmployeeExpense.objects.all()
+    return render(request, 'review.html', {'user': user})
 
